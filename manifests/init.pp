@@ -82,6 +82,9 @@ class statsd (
   $repeater                          = $statsd::params::repeater,
   $repeaterProtocol                  = $statsd::params::repeaterProtocol,
 
+  $newrelic_port                     = $statsd::params::newrelic_port,
+  $newrelic_eventtype                = $statsd::params::newrelic_eventtype,
+
   $config                            = $statsd::params::config,
 
   $init_location                     = $statsd::params::init_location,

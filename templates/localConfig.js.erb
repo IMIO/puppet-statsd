@@ -104,6 +104,21 @@
   <% end -%>
 <% end -%>
 
+<% if @backends.grep(/newrelic/).any? -%>
+  , backends: [ '@newrelic/statsd-infra-backend' ],
+  newrelic: {
+    port: <%= @newrelic_port %>,
+    host: "localhost",
+    rules: [
+      {
+        matchExpression: ".*",
+        metricSchema: "{app}.{environment}.{host}.{name}",
+        eventType: "<%= @newrelic_eventtype %>",
+      }
+    ]
+  }
+<% end -%>
+
 <% @config.each do |k, v| -%>
 , <%= k %>: <%= v %>
 <% end -%>

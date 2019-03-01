@@ -32,4 +32,13 @@ class statsd::backends {
       require => Package['statsd'],
     }
   }
+
+  # Support for newrelic backend - for now using nodejs::npm
+  if $backends =~ /newrelic/ {
+    nodejs::npm {'@newrelic/statsd-infra-backend':
+      ensure => 'latest',
+      target => '/usr/lib/node_modules/statsd',
+      notify => Package['statsd'],
+    }
+  }
 }
