@@ -82,7 +82,7 @@ class statsd::params {
   $repeater                          = undef
   $repeaterProtocol                  = undef
 
-  $newrelic_port                     = 8001
+  $newrelic_port                     = '8001'
   $newrelic_eventtype                = undef
 
   $config                            = { }

@@ -62,8 +62,8 @@ class statsd::config (
   $stackdriver_debug                 = $statsd::stackdriver_debug,
   $repeater                          = $statsd::repeater,
   $repeaterProtocol                  = $statsd::repeaterProtocol,
-  $newrelic_port                     = $statsd::$newrelic_port,
-  $newrelic_eventtype                = $statsd::$newrelic_eventtype,
+  $newrelic_port                     = $statsd::newrelic_port,
+  $newrelic_eventtype                = $statsd::newrelic_eventtype,
   $config                            = $statsd::config,
 
   $env_append  = $statsd::env_append,
