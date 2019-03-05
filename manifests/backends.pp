@@ -38,7 +38,7 @@ class statsd::backends {
     nodejs::npm {'install-statsd-newrelic-backend':
       ensure => present,
       target => "${statsd::node_module_dir}/statsd",
-      package => '@nodejs/statsd-infra-backend',
+      package => '@newrelic/statsd-infra-backend',
       notify  => Package['statsd'],
     }
   }
