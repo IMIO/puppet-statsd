@@ -120,7 +120,7 @@ class statsd (
     ensure => present,
     path   => '/usr/lib/node_modules/statsd/lib/config.js',
     line   => "util.inherits(Configurator, require('events').EventEmitter);",
-    match  => 'util.inherits(Configurator, process.EventEmitter);',
+    match  => '^util.inherits',
   }
   
   if $manage_service == true {
