@@ -115,6 +115,13 @@ class statsd (
     provider => $package_provider,
     source   => $package_source
   }
+  ->
+  file_line{ 'statsd_lib_configjs_fix':
+    ensure => present,
+    path   => '/usr/lib/node_modules/statsd/lib/config.js',
+    line   => "util.inherits(Configurator, require('events').EventEmitter);",
+    match  => 'util.inherits(Configurator, process.EventEmitter);',
+  }
 
   if $manage_service == true {
     service { 'statsd':
