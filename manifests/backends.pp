@@ -35,10 +35,10 @@ class statsd::backends {
 
   # Support for newrelic backend
   if $backends =~ /newrelic/ {
-    exec {'install-statsd-newrelic-backend':
-      command => "${statsd::npm_bin} install --save ${statsd::node_module_dir}/statsd",
-      cwd     => "${statsd::node_module_dir}/statsd/node_modules",
-      unless  => "/usr/bin/test -d ${node_base}/@newrelic/statsd-infra-backend",
+    nodejs::npm {'install-statsd-newrelic-backend':
+      ensure => present,
+      target => "${statsd::node_module_dir}/statsd",
+      package => '@nodejs/statsd-infra-backend',
       notify  => Package['statsd'],
     }
   }
