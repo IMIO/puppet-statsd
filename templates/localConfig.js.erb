@@ -105,8 +105,8 @@
 <% end -%>
 
 <% if @backends.grep(/newrelic/).any? -%>
-  , backends: [ '@newrelic/statsd-infra-backend' ],
-  newrelic: {
+
+, newrelic: {
     port: <%= @newrelic_port %>,
     host: "localhost",
     rules: [
